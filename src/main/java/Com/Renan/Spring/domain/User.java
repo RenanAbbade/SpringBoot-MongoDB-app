@@ -1,7 +1,12 @@
 package Com.Renan.Spring.domain;
-
+//Para dizer que a classe User correponde a uma colecction do mongo DB, devemos usar as antotacoes @Document antes da classe, e o @Id em cima do atributo que for a primaryKey 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+@Document(collection="user")//Entre parenteses é opicional
 public class User implements Serializable {
 	// Serializable é um padrão que é utilizado para os objetos serem convertidos em
 	// bytes, para serem trafegados em rede ou gravados em arquivo
@@ -9,7 +14,9 @@ public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private String id;
+	
 	private String name;
 	private String email;
 
